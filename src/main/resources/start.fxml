@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.StartController">
+   <children>
+      <Button fx:id="btnStart" layoutX="340.0" layoutY="268.0" mnemonicParsing="false" text="Start">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnExit" layoutX="340.0" layoutY="343.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="82.0" text="Exit">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="268.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KungeonD">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="622.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver: a0.1 2017" />
+   </children>
+</Pane>

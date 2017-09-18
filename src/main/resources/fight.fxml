@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.FightController">
+   <children>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fight!">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtMonster" layoutX="434.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="monster" />
+      <Text fx:id="txtPlayer" layoutX="58.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="player" />
+      <Button fx:id="btnAttack" layoutX="216.0" layoutY="402.0" mnemonicParsing="false" text="attack" />
+      <Button fx:id="btnRun" layoutX="223.0" layoutY="455.0" mnemonicParsing="false" text="run" />
+      <TextArea fx:id="txtFight" layoutX="36.0" layoutY="120.0" prefHeight="184.0" prefWidth="442.0" />
+   </children>
+</Pane>

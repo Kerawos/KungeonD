@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.HeroCreatorController">
+   <children>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Character Creator:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="102.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtNickname" layoutX="211.0" layoutY="90.0" promptText="enter nickname here..">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Text fx:id="lblMaxHp" layoutX="205.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="121.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HP:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="61.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strength:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblStr" layoutX="205.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnHPplus" layoutX="157.0" layoutY="145.0" mnemonicParsing="false" text="+">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnHPminus" layoutX="232.0" layoutY="144.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSTRminus" layoutX="232.0" layoutY="208.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSTRplus" layoutX="157.0" layoutY="208.0" mnemonicParsing="false" text="+">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="46.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points remain:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblPointsRem" layoutX="205.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnBegin" layoutX="608.0" layoutY="575.0" mnemonicParsing="false" text="Begin journey">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

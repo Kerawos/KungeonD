@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.MapController">
+   <children>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Map">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblNickname" layoutX="9.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="9.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hit Points:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strength:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblMapHp" layoutX="105.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblMapStr" layoutX="105.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnToTown" layoutX="31.0" layoutY="57.0" mnemonicParsing="false" prefHeight="168.0" prefWidth="305.0" text="To the Town" />
+      <Button fx:id="btnToDungeon" layoutX="365.0" layoutY="57.0" mnemonicParsing="false" prefHeight="168.0" prefWidth="305.0" text="To the Dungeon" />
+      <Button fx:id="btnInv" layoutX="623.0" layoutY="546.0" mnemonicParsing="false" text="Inventory" />
+   </children>
+</Pane>

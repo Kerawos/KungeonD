@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.InventoryController">
+   <children>
+      <Text layoutX="25.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GEAR:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="325.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INVENTORY:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnSlot1" layoutX="320.0" layoutY="50.0" mnemonicParsing="false" text="Slot 1" />
+      <Button fx:id="btnSlot2" layoutX="320.0" layoutY="85.0" mnemonicParsing="false" text="Slot 2" />
+      <Button fx:id="btnSlot3" layoutX="320.0" layoutY="116.0" mnemonicParsing="false" text="Slot 3" />
+      <Button fx:id="btnSlot4" layoutX="320.0" layoutY="150.0" mnemonicParsing="false" text="Slot 4" />
+      <Button fx:id="btnWeapon" layoutX="20.0" layoutY="245.0" mnemonicParsing="false" text="Weapon" />
+      <Button fx:id="btnArmor" layoutX="20.0" layoutY="282.0" mnemonicParsing="false" text="Armor" />
+      <Text fx:id="txtGold" layoutX="500.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gold" />
+      <Button fx:id="btnBack" layoutX="10.0" layoutY="365.0" mnemonicParsing="false" text="BACK" />
+      <Text fx:id="txtPlayerInfo" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="txtDmgDone" layoutX="19.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dmg:" />
+      <Text fx:id="txtArmorHave" layoutX="14.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="armor:" />
+   </children>
+</Pane>
