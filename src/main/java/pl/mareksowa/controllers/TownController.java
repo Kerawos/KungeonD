@@ -33,7 +33,7 @@ public class TownController implements Initializable {
         registerButtonToMap();
         registerButtonRestTavern();
         registerButtonRestCathedral();
-
+        registerButtonStore();
     }
 
     private void registerButtonInventory(){
@@ -51,23 +51,33 @@ public class TownController implements Initializable {
         });
     }
 
+    private void registerButtonStore(){
+        btnStore.setOnMouseClicked(e->{
+            Stage mapStage = (Stage) btnStore.getScene().getWindow();
+            Utils.getInstance().sceneChange(mapStage, "store.fxml");
+        });
+    }
+
+
     private void registerButtonRestTavern(){
         btnTawern.setOnMouseClicked(e->{
             if (HeroCreatorController.player.getGold()>25){
                 if (HeroCreatorController.player.getHp()<HeroCreatorController.player.getMaxHp()){
                     HeroCreatorController.player.setGold(HeroCreatorController.player.getGold()-25);
-                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()+5);
+                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()
+                            + HeroCreatorController.player.getLevel());
                     if (HeroCreatorController.player.getHp()>HeroCreatorController.player.getMaxHp()){
                         HeroCreatorController.player.setHp(HeroCreatorController.player.getMaxHp());
                     }
+                    Utils.getInstance().showInformationDialog("Rest in tavern",
+                            "You rest poor.. but is always something you have "
+                                    + HeroCreatorController.player.getHp());
                 }
+            }else {
                 Utils.getInstance().showInformationDialog("Rest in tavern",
-                    "You rest poor.. but is always something you have " + HeroCreatorController.player.getHp());
+                        "You have not enough gold");
             }
-            Utils.getInstance().showInformationDialog("Rest in tavern",
-                    "You have not enough gold");
         });
-
     }
 
     private void registerButtonRestCathedral(){
@@ -75,14 +85,14 @@ public class TownController implements Initializable {
             if (HeroCreatorController.player.getGold()>250){
                 if (HeroCreatorController.player.getHp()<HeroCreatorController.player.getMaxHp()){
                     HeroCreatorController.player.setHp(HeroCreatorController.player.getMaxHp());
+                    Utils.getInstance().showInformationDialog("Visited Cathedral",
+                            "You got bless from heavens, you revive completely");
                 }
+            } else {
                 Utils.getInstance().showInformationDialog("Visited Cathedral",
-                        "You got bless from heavens, you revive completely");
+                        "You have not enough gold");
             }
-            Utils.getInstance().showInformationDialog("Visited Cathedral",
-                    "You have not enough gold");
         });
-
     }
 
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.StoreController">
+   <children>
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General Store">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="45.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Items:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="546.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnBack" layoutX="699.0" layoutY="601.0" mnemonicParsing="false" text="Back to Town" />
+      <Button fx:id="btnInv" layoutX="14.0" layoutY="601.0" mnemonicParsing="false" text="Inventory" />
+      <Button fx:id="btnSlot1" layoutX="60.0" layoutY="82.0" mnemonicParsing="false" text="btnSlot1" />
+      <Button fx:id="btnSlot2" layoutX="60.0" layoutY="120.0" mnemonicParsing="false" text="btnSlot2" />
+      <Button fx:id="btnSlot3" layoutX="60.0" layoutY="154.0" mnemonicParsing="false" text="btnSlot3" />
+      <Button fx:id="btnSlot4" layoutX="60.0" layoutY="191.0" mnemonicParsing="false" text="btnSlot4" />
+      <Button fx:id="btnSlot5" layoutX="60.0" layoutY="227.0" mnemonicParsing="false" text="btnSlot5" />
+      <Button fx:id="btnSlot6" layoutX="60.0" layoutY="262.0" mnemonicParsing="false" text="btnSlot6" />
+      <Button fx:id="btnSlot7" layoutX="60.0" layoutY="295.0" mnemonicParsing="false" text="btnSlot7" />
+      <Button fx:id="btnSlot8" layoutX="60.0" layoutY="330.0" mnemonicParsing="false" text="btnSlot8" />
+      <Button fx:id="btnStore1" layoutX="540.0" layoutY="82.0" mnemonicParsing="false" text="store1" />
+      <Button fx:id="btnStore2" layoutX="540.0" layoutY="120.0" mnemonicParsing="false" text="store2" />
+      <Button fx:id="btnStore3" layoutX="540.0" layoutY="154.0" mnemonicParsing="false" text="store3" />
+      <Button fx:id="btnStore4" layoutX="540.0" layoutY="191.0" mnemonicParsing="false" text="store4" />
+      <Button fx:id="btnStore5" layoutX="540.0" layoutY="227.0" mnemonicParsing="false" text="store5" />
+      <Button fx:id="btnStore6" layoutX="540.0" layoutY="262.0" mnemonicParsing="false" text="store6" />
+      <Button fx:id="btnStore7" layoutX="540.0" layoutY="295.0" mnemonicParsing="false" text="store7" />
+      <Button fx:id="btnStore8" layoutX="540.0" layoutY="330.0" mnemonicParsing="false" text="store8" />
+      <Button fx:id="btnStore9" layoutX="540.0" layoutY="363.0" mnemonicParsing="false" text="store9" />
+      <Button fx:id="btnStore10" layoutX="540.0" layoutY="398.0" mnemonicParsing="false" text="store10" />
+      <Text fx:id="txtGold" layoutX="248.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yotur Gold" />
+      <TextArea fx:id="txtInfo" editable="false" layoutX="218.0" layoutY="476.0" prefHeight="150.0" prefWidth="364.0" />
+   </children>
+</Pane>

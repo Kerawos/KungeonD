@@ -64,9 +64,17 @@ public class FightController implements Initializable {
 
     private void updatePlayer(){
         txtPlayer.setText(HeroCreatorController.player.toString());
-        txtPlayerDmg.setText("Dmg="+String.valueOf(HeroCreatorController.player.getStr()
-                +HeroCreatorController.player.getWeapon().getDamage()));
-        txtPlayerDef.setText("Def="+String.valueOf(HeroCreatorController.player.getArmor().getDef()));
+        if (HeroCreatorController.player.getWeapon()!=null){
+            txtPlayerDmg.setText("Dmg="+String.valueOf(HeroCreatorController.player.getStr()
+                    +HeroCreatorController.player.getWeapon().getDamage()));
+        } else {
+            txtPlayerDmg.setText("Dmg="+String.valueOf(HeroCreatorController.player.getStr()));
+        }
+        if (HeroCreatorController.player.getArmor()!=null){
+            txtPlayerDef.setText("Def="+String.valueOf(HeroCreatorController.player.getArmor().getDef()));
+        } else {
+            txtPlayerDef.setText("Def= 0");
+        }
     }
 
     private void updateMonster(){
@@ -103,21 +111,26 @@ public class FightController implements Initializable {
         }
         //monster attack
         if (monster.getHp()>0){
-            int dmgDone;
-            if (HeroCreatorController.player.getArmor()!=null){
-                if (monster.getStr()>HeroCreatorController.player.getArmor().getDef()) {
-                    dmgDone = monster.getStr() - HeroCreatorController.player.getArmor().getDef();
+            if (Item.random.nextInt(10)>3){
+                int dmgDone;
+                if (HeroCreatorController.player.getArmor()!=null){
+                    if (monster.getStr()>HeroCreatorController.player.getArmor().getDef()) {
+                        dmgDone = monster.getStr() - HeroCreatorController.player.getArmor().getDef();
+                    } else {
+                        dmgDone = 1;
+                    }
+                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-dmgDone);
                 } else {
-                    dmgDone = 1;
+                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-monster.getStr());
                 }
-                HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-dmgDone);
+                //check result
+                if (HeroCreatorController.player.getHp()<=0){
+                    playerWin(false);
+                }
             } else {
-                HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-monster.getStr());
+                txtFight.setText("Monster missed");
             }
-            //check result
-            if (HeroCreatorController.player.getHp()<=0){
-                playerWin(false);
-            }
+
         } else {
             MapController.dungeonLevel++;
             HeroCreatorController.player.setExp(HeroCreatorController.player.getExp()+monster.getStr());
@@ -136,7 +149,7 @@ public class FightController implements Initializable {
         if (result){
             boolean getItem = false;
             if (HeroCreatorController.player.getInventory().size()<8){
-                if (Item.random.nextInt(9)>6){
+                if (Item.random.nextInt(9)>5){
                     HeroCreatorController.player.addInventory(Item.itemGenerator());
                     getItem = true;
                 }

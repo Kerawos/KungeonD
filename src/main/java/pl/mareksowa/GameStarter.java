@@ -11,7 +11,7 @@ public class GameStarter extends Application {
     @Override
     public void start(Stage startStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("start.fxml"));
-        startStage.setTitle("KungeonD a0.1");
+        startStage.setTitle("KungeonD a0.5");
         startStage.setScene(new Scene(root, 800, 640));
         startStage.setResizable(false);
         startStage.show();
