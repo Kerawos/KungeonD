@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.TownController">
+   <children>
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Town Map">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnTawern" layoutX="30.0" layoutY="60.0" mnemonicParsing="false" text="Rest in Tawern ($25)" />
+      <Button fx:id="btnCath" layoutX="27.0" layoutY="349.0" mnemonicParsing="false" text="Visit Cathedral ($250)" />
+      <Button fx:id="btnBack" layoutX="681.0" layoutY="601.0" mnemonicParsing="false" text="Back to The map" />
+      <Button fx:id="btnStore" layoutX="367.0" layoutY="118.0" mnemonicParsing="false" text="Visit General Store" />
+      <Button fx:id="btnInventory" layoutX="14.0" layoutY="601.0" mnemonicParsing="false" text="Inventory" />
+   </children>
+</Pane>

@@ -23,15 +23,22 @@ public class MapController implements Initializable {
     private Text lblMapStr;
 
     @FXML
-    Button btnToTown;
+    private Button btnToTown;
 
     @FXML
-    Button btnToDungeon;
+    private Button btnToDungeon;
 
     @FXML
-    Button btnInv;
+    private Button btnInv;
 
     public static int dungeonLevel = 0;
+
+    @FXML
+    private Text txtDmg;
+
+    @FXML
+    private Text txtDef;
+
 
 
 
@@ -40,6 +47,17 @@ public class MapController implements Initializable {
         lblNickname.setText(HeroCreatorController.player.getNickname()+":");
         lblMapHp.setText(String.valueOf(HeroCreatorController.player.getHp()) + "/" + String.valueOf(HeroCreatorController.player.getMaxHp()));
         lblMapStr.setText(String.valueOf(HeroCreatorController.player.getStr()));
+        if (HeroCreatorController.player.getWeapon()!=null){
+            txtDmg.setText("Dmg= "+String.valueOf(HeroCreatorController.player.getStr()
+                    +HeroCreatorController.player.getWeapon().getDamage()));
+        } else {
+            txtDmg.setText("Dmg= "+String.valueOf(HeroCreatorController.player.getStr()));
+        }
+        if (HeroCreatorController.player.getArmor()!=null){
+            txtDef.setText("Def= "+String.valueOf(HeroCreatorController.player.getArmor().getDef()));
+        } else {
+            txtDef.setText("Def= 0");
+        }
         registerButtonToDungeon();
         registerButtonToTheTown();
         registerButtonInventory();
@@ -54,6 +72,10 @@ public class MapController implements Initializable {
     }
 
     private void registerButtonToTheTown(){
+        btnToTown.setOnMouseClicked(e->{
+            Stage mapTown = (Stage) btnToTown.getScene().getWindow();
+            Utils.getInstance().sceneChange(mapTown, "town.fxml");
+        });
 
     }
 
@@ -62,7 +84,7 @@ public class MapController implements Initializable {
             Utils.getInstance().setBackStage("map.fxml");
             Stage mapStage = (Stage) btnInv.getScene().getWindow();
             Utils.getInstance().sceneChange(mapStage, "inventory.fxml");
-                });
+        });
 //        Utils.getInstance().setBackStage("map.fxml");
 //        btnInv.setOnMouseClicked(e->Utils.getInstance().showInventory(btnInv));
     }

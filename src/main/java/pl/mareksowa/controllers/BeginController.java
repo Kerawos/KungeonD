@@ -26,12 +26,15 @@ public class BeginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         registerEnterMapButton();
         HeroCreatorController.player.setWeapon(new Weapon());
-        HeroCreatorController.player.setArmor(new Armor());
-        HeroCreatorController.player.addInventory(new Weapon());
         HeroCreatorController.player.addInventory(new Potion());
-        txtLore.setText("As a child you ..." + HeroCreatorController.player.getWeapon().toString() +", "
-                + HeroCreatorController.player.getArmor().toString() + ", "
-                + HeroCreatorController.player.getInventory().get(0) );
+        txtLore.setText(HeroCreatorController.player.getNickname() + " grew up near the village of Kazimierz, " +
+                "\nnot too far from the capitol. He’s fairly educated and came from a good family, " +
+                "\nalthough he’s had a taste for getting himself in over his head as a child. " +
+                "\nHis Uncle Krak told him stories of adventures and such, which got him “curious” \n" +
+                "about seeking fame and fortune. " +
+                "\n\nAs a young adventurer you start your journey with '"
+                + HeroCreatorController.player.getWeapon().getName() +"', " +
+                "\nand '" + HeroCreatorController.player.getInventory().get(0).getName()+"'." );
     }
 
     private void registerEnterMapButton(){

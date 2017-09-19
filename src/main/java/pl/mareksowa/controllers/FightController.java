@@ -29,7 +29,10 @@ public class FightController implements Initializable {
     Text txtMonster;
 
     @FXML
-    Button btnAttack;
+    Button btnAttackStrong;
+
+    @FXML
+    Button btnAttackNormal;
 
     @FXML
     Button btnRun;
@@ -37,10 +40,17 @@ public class FightController implements Initializable {
     @FXML
     TextArea txtFight;
 
+    @FXML
+    Text txtPlayerDef;
+
+    @FXML
+    Text txtPlayerDmg;
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        txtFight.setText("Wild '" + monster.getName() + "' appear!");
         updateFight();
         registerButtonRun();
         registerButtonAttack();
@@ -49,11 +59,14 @@ public class FightController implements Initializable {
     }
 
     private MonsterModel generateMonster(){
-        return new MonsterModel();
+        return new MonsterModel(MapController.dungeonLevel);
     }
 
     private void updatePlayer(){
         txtPlayer.setText(HeroCreatorController.player.toString());
+        txtPlayerDmg.setText("Dmg="+String.valueOf(HeroCreatorController.player.getStr()
+                +HeroCreatorController.player.getWeapon().getDamage()));
+        txtPlayerDef.setText("Def="+String.valueOf(HeroCreatorController.player.getArmor().getDef()));
     }
 
     private void updateMonster(){
@@ -70,44 +83,51 @@ public class FightController implements Initializable {
     }
 
     private void registerButtonAttack(){
-        btnAttack.setOnMouseClicked(e-> {
-            if (HeroCreatorController.player.getWeapon()!=null){
-                monster.setHp(monster.getHp()- HeroCreatorController.player.getStr()
-                        - HeroCreatorController.player.getWeapon().getDamage());
-            } else {
-                monster.setHp(monster.getHp()- HeroCreatorController.player.getStr());
-            }
+        btnAttackStrong.setOnMouseClicked(e-> attackButton(5, 2));
+        btnAttackNormal.setOnMouseClicked(e-> attackButton(9, 1));
+    }
 
-            if (monster.getHp()>0){
-                int dmgDone;
-                if (HeroCreatorController.player.getArmor()!=null){
-                    if (monster.getStr()>HeroCreatorController.player.getArmor().getDef()) {
-                        dmgDone = monster.getStr() - HeroCreatorController.player.getArmor().getDef();
-                    } else {
-                        dmgDone = 1;
-                    }
-                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-dmgDone);
+    private void attackButton(int hitChance, int dmgBonus){
+        int x = Item.random.nextInt(10)+1;
+        System.out.println(x);
+        if (x<=hitChance) { // normal attack
+            //player attack
+            if (HeroCreatorController.player.getWeapon() != null) {
+                monster.setHp(monster.getHp() - (HeroCreatorController.player.getStr()
+                        + HeroCreatorController.player.getWeapon().getDamage()) * dmgBonus);
+            } else {
+                monster.setHp(monster.getHp() - (HeroCreatorController.player.getStr() * dmgBonus));
+            }
+        }else {
+            txtFight.setText("player missed");
+        }
+        //monster attack
+        if (monster.getHp()>0){
+            int dmgDone;
+            if (HeroCreatorController.player.getArmor()!=null){
+                if (monster.getStr()>HeroCreatorController.player.getArmor().getDef()) {
+                    dmgDone = monster.getStr() - HeroCreatorController.player.getArmor().getDef();
                 } else {
-                    HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-monster.getStr());
+                    dmgDone = 1;
                 }
-
-
-                if (HeroCreatorController.player.getHp()<=0){
-                    playerWin(false);
-                }
+                HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-dmgDone);
             } else {
-                MapController.dungeonLevel++;
-                HeroCreatorController.player.setExp(HeroCreatorController.player.getExp()+monster.getStr());
-                HeroCreatorController.player.setGold(HeroCreatorController.player.getGold()+monster.getMaxHp());
-                playerWin(true);
+                HeroCreatorController.player.setHp(HeroCreatorController.player.getHp()-monster.getStr());
             }
-            updateFight();
-                }
-        );
+            //check result
+            if (HeroCreatorController.player.getHp()<=0){
+                playerWin(false);
+            }
+        } else {
+            MapController.dungeonLevel++;
+            HeroCreatorController.player.setExp(HeroCreatorController.player.getExp()+monster.getStr());
+            HeroCreatorController.player.setGold(HeroCreatorController.player.getGold()+monster.getMaxHp());
+            playerWin(true);
+        }
+        updateFight();
     }
 
     private void updateFight(){
-        txtFight.setText("Wild '" + monster.getName() + "' appear!");
         updatePlayer();
         updateMonster();
     }
@@ -115,17 +135,20 @@ public class FightController implements Initializable {
     private void playerWin(boolean result){
         if (result){
             boolean getItem = false;
-            if (HeroCreatorController.player.getInventory().size()<4){
-                HeroCreatorController.player.addInventory(Item.itemGenerator());
-                getItem = true;
+            if (HeroCreatorController.player.getInventory().size()<8){
+                if (Item.random.nextInt(9)>6){
+                    HeroCreatorController.player.addInventory(Item.itemGenerator());
+                    getItem = true;
+                }
             }
             if (getItem){
-                Utils.getInstance().showInformationDialog("You won", "You succesfully win this battle! \n" +
-                        "You earn " + monster.getStr() + " exp\n and " + monster.getMaxHp() + " gold.. and "
-                        + HeroCreatorController.player.getInventory().get(HeroCreatorController.player.getInventory().size()-1));
+                Utils.getInstance().showInformationDialog("You won", "You succesfully win this battle!"
+                        + "\nYou earn " + monster.getStr() + " exp\n and " + monster.getMaxHp() + " gold.. \n" +
+                        "Oh! moreover you found " + HeroCreatorController.player.getInventory().
+                        get(HeroCreatorController.player.getInventory().size()-1));
             } else {
-                Utils.getInstance().showInformationDialog("You won", "You succesfully win this battle! \n" +
-                        "You earn " + monster.getStr() + " exp\n and " + monster.getMaxHp() + " gold.. and ");
+                Utils.getInstance().showInformationDialog("You won", "You succesfully win this battle!"
+                        + "\nYou earn " + monster.getStr() + " exp\n and " + monster.getMaxHp() + " gold..");
             }
             btnRun.fire();
         } else {

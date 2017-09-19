@@ -28,6 +28,18 @@ public class InventoryController implements Initializable{
     Button btnSlot4;
 
     @FXML
+    Button btnSlot5;
+
+    @FXML
+    Button btnSlot6;
+
+    @FXML
+    Button btnSlot7;
+
+    @FXML
+    Button btnSlot8;
+
+    @FXML
     Button btnWeapon;
 
     @FXML
@@ -63,6 +75,10 @@ public class InventoryController implements Initializable{
         btnSlot2.setVisible(false);
         btnSlot3.setVisible(false);
         btnSlot4.setVisible(false);
+        btnSlot5.setVisible(false);
+        btnSlot6.setVisible(false);
+        btnSlot7.setVisible(false);
+        btnSlot8.setVisible(false);
         btnArmor.setVisible(false);
         btnWeapon.setVisible(false);
 
@@ -108,6 +124,22 @@ public class InventoryController implements Initializable{
             btnSlot4.setVisible(true);
             btnSlot4.setText(HeroCreatorController.player.getInventory().get(3).toString());
         }
+        if (HeroCreatorController.player.getInventory().size()>4){
+            btnSlot5.setVisible(true);
+            btnSlot5.setText(HeroCreatorController.player.getInventory().get(4).toString());
+        }
+        if (HeroCreatorController.player.getInventory().size()>5){
+            btnSlot6.setVisible(true);
+            btnSlot6.setText(HeroCreatorController.player.getInventory().get(5).toString());
+        }
+        if (HeroCreatorController.player.getInventory().size()>6){
+            btnSlot7.setVisible(true);
+            btnSlot7.setText(HeroCreatorController.player.getInventory().get(6).toString());
+        }
+        if (HeroCreatorController.player.getInventory().size()>7){
+            btnSlot8.setVisible(true);
+            btnSlot8.setText(HeroCreatorController.player.getInventory().get(7).toString());
+        }
         txtGold.setText("Gold: " + HeroCreatorController.player.getGold());
         System.out.println("player up[date");
     }
@@ -120,7 +152,7 @@ public class InventoryController implements Initializable{
     }
     private void registerButtonChangeInventory(){
         btnWeapon.setOnMouseClicked(e->{
-            if (HeroCreatorController.player.getInventory().size()<4){
+            if (HeroCreatorController.player.getInventory().size()<8){
                 HeroCreatorController.player.addInventory(HeroCreatorController.player.getWeapon());
                 HeroCreatorController.player.setWeapon(null);
                 updatePlayer();
@@ -128,7 +160,7 @@ public class InventoryController implements Initializable{
                 }
         );
         btnArmor.setOnMouseClicked(e->{
-            if (HeroCreatorController.player.getInventory().size()<4){
+            if (HeroCreatorController.player.getInventory().size()<8){
                 HeroCreatorController.player.addInventory(HeroCreatorController.player.getArmor());
                 HeroCreatorController.player.setArmor(null);
                 updatePlayer();
@@ -139,6 +171,10 @@ public class InventoryController implements Initializable{
         btnSlot2.setOnMouseClicked(e->manageInv(1));
         btnSlot3.setOnMouseClicked(e->manageInv(2));
         btnSlot4.setOnMouseClicked(e->manageInv(3));
+        btnSlot5.setOnMouseClicked(e->manageInv(4));
+        btnSlot6.setOnMouseClicked(e->manageInv(5));
+        btnSlot7.setOnMouseClicked(e->manageInv(6));
+        btnSlot8.setOnMouseClicked(e->manageInv(7));
 
     }
 

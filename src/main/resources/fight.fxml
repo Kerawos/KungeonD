@@ -14,9 +14,12 @@
          </font>
       </Text>
       <Text fx:id="txtMonster" layoutX="434.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="monster" />
-      <Text fx:id="txtPlayer" layoutX="58.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="player" />
-      <Button fx:id="btnAttack" layoutX="216.0" layoutY="402.0" mnemonicParsing="false" text="attack" />
-      <Button fx:id="btnRun" layoutX="223.0" layoutY="455.0" mnemonicParsing="false" text="run" />
+      <Text fx:id="txtPlayer" layoutX="28.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="player" />
+      <Button fx:id="btnAttackStrong" layoutX="233.0" layoutY="348.0" mnemonicParsing="false" text="Strong Attack" />
+      <Button fx:id="btnRun" layoutX="240.0" layoutY="498.0" mnemonicParsing="false" text="run" />
       <TextArea fx:id="txtFight" layoutX="36.0" layoutY="120.0" prefHeight="184.0" prefWidth="442.0" />
+      <Text fx:id="txtPlayerDmg" layoutX="28.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dmg" />
+      <Text fx:id="txtPlayerDef" layoutX="36.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Def" />
+      <Button fx:id="btnAttackNormal" layoutX="233.0" layoutY="388.0" mnemonicParsing="false" text="Normal Attack" />
    </children>
 </Pane>

@@ -7,13 +7,14 @@ import java.util.Random;
 
 public class Weapon extends Item{
 //Random rnd = new Random();
-    String[] itemNamesPrefix = {"Fine", "Rusted", "Fluffy", "Magic", "Normal", "Shiny", "Broken", "Great"};
-    String[] itemNameSuffix = {"Sword", "Axe", "Bow", "Dagger"};
-
+    String[] itemNamesPrefix = {"Broken", "Rusted", "Fine", "Typical", "Shiny", "Magic", "Great", "Legendary"};
+    String[] itemNameSuffix = {"Dagger", "Bow", "Sword", "Axe", "War-Hammer"};
+    int preI;
+    int sufI;
 
     public Weapon(){
         setName(nameGenerator());
-        setDamage(random.nextInt(10)+ HeroCreatorController.player.getLevel());
+        setDamage(random.nextInt(3)+ HeroCreatorController.player.getLevel()+preI+sufI);
         setPrice(getDamage()*2);
     }
 
@@ -23,13 +24,18 @@ public class Weapon extends Item{
     }
 
     public String nameGenerator(){
-        String pre = itemNamesPrefix[random.nextInt(itemNamesPrefix.length-1)]; //generuje prefix
-        String suf = itemNameSuffix[random.nextInt(itemNameSuffix.length-1)]; // generuje suffix
+        preI = HeroCreatorController.player.getLevel()-1;
+                preI = HeroCreatorController.player.getLevel()>7 ? 7
+                : HeroCreatorController.player.getLevel();
+        String pre = itemNamesPrefix[preI].toString(); //generuje prefix
+        sufI = HeroCreatorController.player.getLevel()>4 ? itemNameSuffix.length-1
+                : HeroCreatorController.player.getLevel();
+        String suf = itemNameSuffix[sufI]; // generuje suffix
         return pre + " " + suf; //mozna zapisac w jednej lini ale jest widoczniej bardziej
     }
 
     @Override
     public String toString() {
-        return getName()+", Dmg="+getDamage()+", $=" + getPrice();
+        return getName()+", Dmg="+getDamage()+", $" + getPrice();
     }
 }

@@ -20,10 +20,10 @@ public class MonsterModel {
         this.hp = maxHp;
     }
 
-    public MonsterModel(){
+    public MonsterModel(int dungeonLevel){
         setName(nameGenerator());
-        setStr(Item.random.nextInt(5)+ HeroCreatorController.player.getLevel() + prePower + sufPower);
-        setMaxHp(Item.random.nextInt(5)+ HeroCreatorController.player.getLevel() + prePower + sufPower);
+        setStr((Item.random.nextInt(3)+ HeroCreatorController.player.getLevel() + prePower + sufPower)*dungeonLevel);
+        setMaxHp((Item.random.nextInt(3)+ HeroCreatorController.player.getLevel() + prePower + sufPower)*dungeonLevel);
         this.hp = maxHp;
     }
 
@@ -33,9 +33,11 @@ public class MonsterModel {
 
 
     public String nameGenerator(){
-        prePower = Item.random.nextInt(monsterNamesPrefix.length-1);
+        prePower = HeroCreatorController.player.getLevel()>8 ? monsterNamesPrefix.length-1
+                : HeroCreatorController.player.getLevel();
         String pre = monsterNamesPrefix[prePower]; //generuje prefix
-        sufPower = Item.random.nextInt(monsterNameSuffix.length-1);
+        prePower = HeroCreatorController.player.getLevel()>6 ? monsterNameSuffix.length-1
+                : HeroCreatorController.player.getLevel();
         String suf = monsterNameSuffix[sufPower]; // generuje suffix
         return pre + " " + suf; //mozna zapisac w jednej lini ale jest widoczniej bardziej
     }
